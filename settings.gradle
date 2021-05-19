@@ -1,0 +1,2 @@
+rootProject.name = "Kenya Travel Guide"
+include ':app'
