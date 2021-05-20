@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="FFFFFF">
+    android:background="#FFFFFF">
 
     <ImageView
         android:id="@+id/imageView"
@@ -28,7 +28,7 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/getStarted"
         android:layout_width="264dp"
         android:layout_height="71dp"
         android:layout_alignParentBottom="true"
