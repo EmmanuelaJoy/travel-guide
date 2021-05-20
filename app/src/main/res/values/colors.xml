@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F16821</color>
+    <color name="colorPrimary">#F3A333</color>
     <color name="colorPrimaryDark">#CD4545</color>
     <color name="colorPrimaryLight">#F3A333</color>
     <color name="colorTextIcons">#F3A333</color>
@@ -10,7 +10,7 @@
     <color name="colorDivider">#727272</color>
     <!-- Theme colors -->
     <color name="colorPrimaryVariant">#F3A333</color>
-    <color name="colorOnPrimary">#F16821</color>
+    <color name="colorOnPrimary">#F3A333</color>
     <color name="colorSecondary">#FFFFFF</color>
     <color name="colorSecondaryVariant">#fafafa</color>
     <color name="colorOnSecondary">#212121</color>

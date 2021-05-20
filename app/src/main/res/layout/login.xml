@@ -9,18 +9,19 @@
 
     <TextView
         android:id="@+id/welcomeMessage"
-        android:layout_width="321dp"
-        android:layout_height="75dp"
+        android:layout_width="288dp"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="false"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentRight="false"
         android:layout_alignParentBottom="false"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="113dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="7dp"
         android:alpha="0.7"
         android:gravity="end"
-        android:text="WELCOME TO
-        KENYA TRAVEL GUIDE"
+        android:text="WELCOME TO KENYA TRAVEL GUIDE"
         android:textColor="@color/colorPrimary"
         android:textSize="34sp"
         app:fontFamily="@font/passero_one" />
@@ -29,8 +30,9 @@
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="81dp"
-        android:layout_marginTop="334dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="250dp"
         android:text="Username"
         android:textColor="@color/colorDivider"
         android:textSize="18sp"
@@ -38,17 +40,18 @@
 
     <View
         android:layout_width="275dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="81dp"
-        android:layout_marginTop="389dp"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="305dp"
         android:background="@android:color/black" />
 
     <TextView
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="415dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="331dp"
         android:text="Password"
         android:textColor="@color/colorDivider"
         android:textSize="18sp"
@@ -56,9 +59,9 @@
 
     <View
         android:layout_width="275dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="81dp"
-        android:layout_marginTop="470dp"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="385dp"
         android:background="@android:color/black" />
 
     <Button
@@ -68,11 +71,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="99dp"
         android:layout_marginLeft="99dp"
-        android:layout_marginTop="564dp"
+        android:layout_marginTop="440dp"
         android:text="Log in"
         android:textColor="@color/colorSecondaryText"
         app:backgroundTint="@color/colorPrimary"
-        app:cornerRadius="15" />
+        app:cornerRadius="15dp" />
 
     <TextView
         android:id="@+id/signUpLink"
@@ -80,11 +83,18 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="640dp"
+        android:layout_marginTop="500dp"
         android:text="Already have an account? Sign up"
         android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"
         app:fontFamily="@font/prompt" />
+
+    <View
+        android:layout_width="415dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ic_orangevector" />
+
 
 
 </RelativeLayout>
