@@ -9,19 +9,16 @@
 
     <TextView
         android:id="@+id/welcomeMessage"
-        android:layout_width="288dp"
-        android:layout_height="wrap_content"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentBottom="false"
+        android:layout_width="323dp"
+        android:layout_height="107dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="80dp"
         android:layout_marginRight="7dp"
         android:alpha="0.7"
-        android:gravity="end"
-        android:text="WELCOME TO KENYA TRAVEL GUIDE"
+        android:gravity="center"
+        android:text="WELCOME TO
+        KENYA TRAVEL GUIDE"
         android:textColor="@color/colorPrimary"
         android:textSize="34sp"
         app:fontFamily="@font/passero_one" />
@@ -130,9 +127,9 @@
         android:layout_marginTop="460dp"
         android:text="Sign Up"
         android:textColor="@color/colorSecondaryText"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/colorPrimaryDark"
         app:cornerRadius="15dp"
-        app:iconTint="@color/colorPrimary" />
+        app:iconTint="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/loginLink"

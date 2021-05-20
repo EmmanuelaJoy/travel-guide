@@ -9,15 +9,16 @@
 
     <TextView
         android:id="@+id/welcomeMessage"
-        android:layout_width="288dp"
-        android:layout_height="wrap_content"
+        android:layout_width="336dp"
+        android:layout_height="108dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="80dp"
         android:layout_marginRight="7dp"
         android:alpha="0.7"
-        android:gravity="end"
-        android:text="WELCOME TO KENYA TRAVEL GUIDE"
+        android:gravity="center"
+        android:text="WELCOME TO
+        KENYA TRAVEL GUIDE"
         android:textColor="@color/colorPrimary"
         android:textSize="34sp"
         app:fontFamily="@font/passero_one" />
