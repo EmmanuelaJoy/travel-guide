@@ -20,11 +20,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="450dp"
+        android:gravity="center"
         android:text="Find your next travel destination with Kenya travel guide app."
-        android:textSize="24sp"/>
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/button"
@@ -33,6 +34,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:text="Get Started"
+        android:textColor="@color/colorSecondaryText"
+        app:backgroundTint="@color/colorPrimary"
+        app:iconTint="@color/colorPrimary"
         tools:layout_editor_absoluteX="61dp"
         tools:layout_editor_absoluteY="470dp" />
 
