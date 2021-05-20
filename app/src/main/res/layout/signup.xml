@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/welcomeMessage"
         android:layout_width="304dp"
         android:layout_height="106dp"
         android:layout_alignParentTop="false"
@@ -44,7 +44,7 @@
         android:background="@android:color/black" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="81dp"
@@ -62,7 +62,7 @@
         android:background="@android:color/black" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="84dp"
@@ -80,7 +80,7 @@
         android:background="@android:color/black" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signUp"
         android:layout_width="165dp"
         android:layout_height="46dp"
         android:layout_centerHorizontal="true"
@@ -90,10 +90,11 @@
         android:text="Sign Up"
         android:textColor="@color/colorSecondaryText"
         app:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="15"
         app:iconTint="@color/colorPrimary" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/loginLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
