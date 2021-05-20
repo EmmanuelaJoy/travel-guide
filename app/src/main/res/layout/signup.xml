@@ -27,11 +27,22 @@
         app:fontFamily="@font/passero_one" />
 
     <TextView
+        android:id="@+id/icon1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="250dp"
+        android:fontFamily="@font/font_awesome"
+        android:textSize="20sp"
+        android:text="@string/fa_icon_envelope"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="85dp"
         android:layout_marginTop="250dp"
         android:inputType="text"
         android:text="Email"
@@ -48,11 +59,22 @@
         android:background="@android:color/black" />
 
     <TextView
+        android:id="@+id/icon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="317dp"
+        android:fontFamily="@font/font_awesome"
+        android:textSize="20sp"
+        android:text="@string/fa_icon_user"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="85dp"
         android:layout_marginTop="317dp"
         android:inputType="text"
         android:text="Username"
@@ -68,11 +90,22 @@
         android:background="@android:color/black" />
 
     <TextView
+        android:id="@+id/icon3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="382dp"
+        android:fontFamily="@font/font_awesome"
+        android:textSize="20sp"
+        android:text="@string/fa_icon_lock"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="85dp"
         android:layout_marginTop="382dp"
         android:inputType="textPassword|numberPassword"
         android:text="Password"
@@ -93,13 +126,13 @@
         android:layout_height="46dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="99dp"
+        android:layout_marginLeft="99dp"
         android:layout_marginTop="460dp"
         android:text="Sign Up"
         android:textColor="@color/colorSecondaryText"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/colorAccent"
         app:cornerRadius="15dp"
-        app:iconTint="@color/colorPrimary"
-        android:layout_marginLeft="99dp" />
+        app:iconTint="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/loginLink"
