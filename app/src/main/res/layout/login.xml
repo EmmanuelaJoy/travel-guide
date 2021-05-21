@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/welcomeMessage"
-        android:layout_width="336dp"
-        android:layout_height="108dp"
+        android:layout_width="294dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="80dp"
@@ -28,28 +28,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="245dp"
         android:fontFamily="@font/font_awesome"
         android:textSize="20sp"
         android:text="@string/fa_icon_user"
         android:textColor="@color/colorPrimary" />
 
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="250dp"
-        android:text="Username"
-        android:textColor="@color/colorDivider"
-        android:textSize="18sp"
-        app:fontFamily="@font/prompt" />
+
+    <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="225dp"
+            android:hint="Username"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorDivider"
+            android:textColorHint="@color/colorDivider"
+            android:textSize="18sp"
+            app:fontFamily="@font/prompt"/>
+
 
     <View
-        android:layout_width="275dp"
+        android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="305dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginRight="50dp"
         android:background="@android:color/black" />
 
     <TextView
@@ -57,29 +64,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="331dp"
+        android:layout_marginTop="326dp"
         android:fontFamily="@font/font_awesome"
         android:textSize="20sp"
         android:text="@string/fa_icon_user_lock"
         android:textColor="@color/colorPrimary" />
 
-    <TextView
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="331dp"
-        android:text="Password"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="306dp"
+        android:hint="Password"
+        android:inputType="numberPassword"
         android:textColor="@color/colorDivider"
+        android:textColorHint="@color/colorDivider"
         android:textSize="18sp"
-        app:fontFamily="@font/prompt" />
+        app:fontFamily="@font/prompt"
+        app:passwordToggleEnabled="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
 
     <View
-        android:layout_width="275dp"
+        android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="385dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginRight="50dp"
         android:background="@android:color/black" />
+
+    <!--    <Button-->
+<!--        android:id="@+id/forgotPassword"-->
+<!--        android:layout_width="170dp"-->
+<!--        android:layout_height="33dp"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_marginRight="50dp"-->
+<!--        android:layout_marginTop="395dp"-->
+<!--        android:background="#00000000"-->
+<!--        android:text="Forgot Password"-->
+<!--        android:textColor="@color/colorDivider"-->
+<!--        android:textSize="12sp" />-->
 
     <Button
         android:id="@+id/login"
@@ -88,7 +113,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="99dp"
         android:layout_marginLeft="99dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="455dp"
         android:text="Log in"
         android:textColor="@color/colorSecondaryText"
         app:backgroundTint="@color/colorPrimaryDark"
@@ -100,7 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="515dp"
         android:text="Don't have an account? Sign up"
         android:textColor="@color/colorPrimaryText"
         android:textSize="16sp"
@@ -111,7 +136,6 @@
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/ic_orangevector" />
-
 
 
 </RelativeLayout>

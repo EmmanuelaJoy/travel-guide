@@ -28,31 +28,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="240dp"
         android:fontFamily="@font/font_awesome"
         android:textSize="20sp"
         android:text="@string/fa_icon_envelope"
         android:textColor="@color/colorPrimary" />
 
-    <TextView
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="250dp"
-        android:inputType="text"
-        android:text="Email"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="220dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         android:textColor="@color/colorDivider"
+        android:textColorHint="@color/colorDivider"
         android:textSize="18sp"
-        app:fontFamily="@font/prompt" />
+        app:fontFamily="@font/prompt"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
 
     <View
         android:layout_width="275dp"
         android:layout_height="0.5dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="290dp"
         android:background="@android:color/black" />
 
     <TextView
@@ -60,30 +62,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="317dp"
+        android:layout_marginTop="310dp"
         android:fontFamily="@font/font_awesome"
         android:textSize="20sp"
         android:text="@string/fa_icon_user"
         android:textColor="@color/colorPrimary" />
 
-    <TextView
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="317dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="290dp"
+        android:hint="Username"
         android:inputType="text"
-        android:text="Username"
         android:textColor="@color/colorDivider"
+        android:textColorHint="@color/colorDivider"
         android:textSize="18sp"
-        app:fontFamily="@font/prompt" />
+        app:fontFamily="@font/prompt"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
 
     <View
         android:layout_width="275dp"
         android:layout_height="0.5dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="367dp"
+        android:layout_marginTop="360dp"
         android:background="@android:color/black" />
 
     <TextView
@@ -91,30 +95,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="382dp"
+        android:layout_marginTop="378dp"
         android:fontFamily="@font/font_awesome"
         android:textSize="20sp"
         android:text="@string/fa_icon_lock"
         android:textColor="@color/colorPrimary" />
 
-    <TextView
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="382dp"
-        android:inputType="textPassword|numberPassword"
-        android:text="Password"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="358dp"
+        android:hint="Password"
+        android:inputType="numberPassword"
         android:textColor="@color/colorDivider"
+        android:textColorHint="@color/colorDivider"
         android:textSize="18sp"
-        app:fontFamily="@font/prompt" />
+        app:fontFamily="@font/prompt"
+        app:passwordToggleEnabled="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
 
     <View
         android:layout_width="275dp"
         android:layout_height="0.5dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="432dp"
+        android:layout_marginTop="428dp"
         android:background="@android:color/black" />
 
     <Button
