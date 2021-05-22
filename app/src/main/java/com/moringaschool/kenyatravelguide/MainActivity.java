@@ -9,14 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import butterknife.BindView;
+
 public class MainActivity extends AppCompatActivity {
-    private Button mGetStartedButton;
+    @BindView(R.id.getStarted) Button mGetStartedButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mGetStartedButton = (Button)findViewById(R.id.getStarted);
+
         mGetStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

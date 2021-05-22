@@ -10,17 +10,18 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import butterknife.BindView;
+
 public class LoginActivity extends AppCompatActivity {
-    private Button mLoginButton;
-    private TextView mWelcomeMessage;
-    private TextView mSignUpMessage;
+    @BindView(R.id.login) Button mLoginButton;
+    @BindView(R.id.welcomeMessage) TextView mWelcomeMessage;
+    @BindView(R.id.signUpLink) TextView mSignUpMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        mWelcomeMessage = findViewById(R.id.welcomeMessage);
-        mSignUpMessage = findViewById(R.id.signUpLink);
+
         mSignUpMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,13 +29,14 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        mLoginButton = (Button)findViewById(R.id.login);
+
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
+
         String title = "<font color=#F3A333>WELCOME TO</font> <font color=#F16821>KENYA TRAVEL GUIDE</font>";
         String text = "<font color=#212121>Don't have an account?</font> <font color=#F16821>Sign Up</font>";
         mWelcomeMessage.setText(Html.fromHtml(title));
