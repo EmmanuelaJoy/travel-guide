@@ -6,6 +6,7 @@ import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +25,14 @@ public class SignupActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mLogInMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
