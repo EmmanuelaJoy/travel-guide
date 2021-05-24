@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.getStarted) Button mGetStartedButton;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         mGetStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override

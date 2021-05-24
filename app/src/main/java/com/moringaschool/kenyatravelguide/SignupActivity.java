@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class SignupActivity extends AppCompatActivity {
     @BindView(R.id.signUp) Button mSignUpButton;
@@ -20,6 +21,7 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
+        ButterKnife.bind(this);
 
         mLogInMessage.setOnClickListener(new View.OnClickListener() {
             @Override

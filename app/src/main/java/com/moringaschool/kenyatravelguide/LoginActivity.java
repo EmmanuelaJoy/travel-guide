@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.login) Button mLoginButton;
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        ButterKnife.bind(this);
 
         mSignUpMessage.setOnClickListener(new View.OnClickListener() {
             @Override
