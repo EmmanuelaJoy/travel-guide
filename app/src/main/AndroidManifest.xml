@@ -18,8 +18,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" />
+
+        <activity
+            android:name=".SignupActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.moringaschool.kenyatravelguide.MainActivity">
+            </meta-data>
+        </activity>
+
+        <activity
+            android:name=".LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.moringaschool.kenyatravelguide.MainActivity">
+            </meta-data>
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
