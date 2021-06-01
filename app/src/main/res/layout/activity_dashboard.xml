@@ -1,9 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DashboardActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/menu"
+        android:layout_width="33dp"
+        android:layout_height="31dp"
+        android:fontFamily="@font/font_awesome"
+        android:rotationX="180"
+        android:text="@string/fa_icon_align_left"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="30sp"
+        android:translationX="17dp"
+        android:translationY="72dp" />
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="33dp"
+        android:layout_height="31dp"
+        android:layout_marginRight="17dp"
+        android:layout_alignParentEnd="true"
+        tools:srcCompat="@tools:sample/avatars"
+        android:textColor="@color/colorButtons"
+        android:textSize="30sp"
+        android:translationY="72dp" />
+
+    <TextView
+        android:id="@+id/exploreTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:text="Explore"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="32sp"
+        android:translationX="17dp"
+        android:translationY="140dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="272dp"
+        android:layout_height="52dp"
+        android:translationX="17dp"
+        android:translationY="180dp"
+        app:cornerRadius="10dp"
+        app:backgroundTint="@color/colorButtons"
+        android:alpha="0.2"/>
+
+    <TextView
+        android:id="@+id/searchIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:translationX="35dp"
+        android:translationY="194dp"
+        android:fontFamily="@font/font_awesome"
+        android:textSize="20sp"
+        android:text="@string/fa_search"
+        android:textColor="@color/colorPrimaryText" />
+
+    <TextView
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textSize="15sp"
+        android:textColor="@color/colorDivider"
+        android:translationX="77dp"
+        android:translationY="194dp"/>
+
+    <TextView
+        android:id="@+id/cities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cities"
+        android:textSize="16sp"
+        android:translationX="21dp"
+        android:translationY="253dp"/>
+
+    <ImageView
+        android:id="@+id/nairobi"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:src="@drawable/nairobi"
+        android:scaleType="centerCrop"
+        android:translationX="21dp"
+        android:translationY="292dp"
+        app:cornerRadius="20dp"/>
+
+    <ImageView
+        android:id="@+id/mombasa"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:src="@drawable/mombasa"
+        android:scaleType="centerCrop"
+        android:translationX="203dp"
+        android:translationY="292dp"
+        app:cornerRadius="20dp"/>
+
+    <ImageView
+        android:id="@+id/kisumu"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:src="@drawable/kisumu"
+        android:scaleType="centerCrop"
+        android:translationX="21dp"
+        android:translationY="523dp"
+        app:cornerRadius="20dp"/>
+
+    <ImageView
+        android:id="@+id/nakuru"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:src="@drawable/nakuru2"
+        android:scaleType="centerCrop"
+        android:translationX="203dp"
+        android:translationY="523dp"
+        app:cornerRadius="20dp"/>
+
+
+</RelativeLayout>

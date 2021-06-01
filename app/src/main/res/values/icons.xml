@@ -3,4 +3,7 @@
     <string name="fa_icon_user_lock">&#xf502;</string>
     <string name="fa_icon_envelope">&#xf0e0;</string>
     <string name="fa_icon_lock">&#xf023;</string>
+    <string name="fa_icon_align_left">&#xf036;</string>
+    <string name="fa_icon_user_cirle">&#xf2bd;</string>
+    <string name="fa_search">&#xf002;</string>
 </resources>

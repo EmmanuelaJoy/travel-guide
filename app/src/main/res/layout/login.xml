@@ -45,19 +45,13 @@
             android:layout_marginTop="225dp"
             android:hint="Username"
             android:inputType="textEmailAddress"
-            android:textColor="@color/colorDivider"
+        android:textColor="@color/colorDivider"
             android:textColorHint="@color/colorDivider"
             android:textSize="18sp"
             app:fontFamily="@font/prompt"/>
 
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginRight="50dp"
-        android:background="@android:color/black" />
+    <View android:layout_marginTop="300dp"
+        style="@style/Divider"/>
 
     <TextView
         android:id="@+id/icon2"
@@ -86,13 +80,8 @@
         app:passwordToggleEnabled="true"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="380dp"
-        android:layout_marginRight="50dp"
-        android:background="@android:color/black" />
+    <View android:layout_marginTop="380dp"
+        style="@style/Divider"/>
 
     <!--    <Button-->
 <!--        android:id="@+id/forgotPassword"-->
