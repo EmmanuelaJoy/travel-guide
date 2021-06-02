@@ -10,13 +10,22 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SignupActivity extends AppCompatActivity {
+
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
     @BindView(R.id.signUp) Button mSignUpButton;
     @BindView(R.id.welcomeMessage) TextView mWelcomeMessage;
     @BindView(R.id.loginLink) TextView mLogInMessage;
+    @BindView(R.id.email) TextView mEmail;
+    @BindView(R.id.username) TextView mUsername;
+    @BindView(R.id.password) TextView mPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +44,13 @@ public class SignupActivity extends AppCompatActivity {
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rootNode = FirebaseDatabase.getInstance();
+                reference = rootNode.getReference("users");
+                String email = mEmail.getEditableText().toString();
+                String username = mUsername.getEditableText().toString();
+                String password =  mPassword.getEditableText().toString();
+                UserHelperClass helperClass = new UserHelperClass(email,username,password);
+                reference.setValue(helperClass);
                 Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                 startActivity(intent);
             }

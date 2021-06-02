@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-
     <TextView
         android:id="@+id/welcomeMessage"
         android:layout_width="323dp"
