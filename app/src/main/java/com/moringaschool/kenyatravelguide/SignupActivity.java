@@ -8,18 +8,23 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SignupActivity extends AppCompatActivity {
 
-    FirebaseDatabase rootNode;
+    FirebaseDatabase database;
     DatabaseReference reference;
+    int userId = 0;
     @BindView(R.id.signUp) Button mSignUpButton;
     @BindView(R.id.welcomeMessage) TextView mWelcomeMessage;
     @BindView(R.id.loginLink) TextView mLogInMessage;
@@ -44,13 +49,26 @@ public class SignupActivity extends AppCompatActivity {
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rootNode = FirebaseDatabase.getInstance();
-                reference = rootNode.getReference("users");
+                database = FirebaseDatabase.getInstance();
+                reference = database.getReference("users");
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @org.jetbrains.annotations.NotNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            userId = (int) snapshot.getChildrenCount();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @org.jetbrains.annotations.NotNull DatabaseError error) {
+
+                    }
+                });
                 String email = mEmail.getEditableText().toString();
                 String username = mUsername.getEditableText().toString();
                 String password =  mPassword.getEditableText().toString();
                 UserHelperClass helperClass = new UserHelperClass(email,username,password);
-                reference.setValue(helperClass);
+                reference.child(String.valueOf(userId+1)).setValue(helperClass);
                 Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
