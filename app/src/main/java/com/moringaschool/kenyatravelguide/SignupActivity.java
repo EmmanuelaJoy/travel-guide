@@ -53,13 +53,13 @@ public class SignupActivity extends AppCompatActivity {
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = mEmail.getEditableText().toString();
-                String username = mUsername.getEditableText().toString();
-                String password =  mPassword.getEditableText().toString();
-                UserHelperClass helperClass = new UserHelperClass(email,username,password);
                 if(!validateEmail() || !validateUsername() || !validatePassword()){
                     return;
                 } else{
+                    String email = mEmail.getEditableText().toString();
+                    String username = mUsername.getEditableText().toString();
+                    String password =  mPassword.getEditableText().toString();
+                    UserHelperClass helperClass = new UserHelperClass(email,username,password);
                     reference.push().setValue(helperClass);
                     Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                     startActivity(intent);
