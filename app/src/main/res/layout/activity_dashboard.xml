@@ -80,45 +80,110 @@
         android:translationX="21dp"
         android:translationY="253dp"/>
 
-    <ImageView
+    <androidx.cardview.widget.CardView
         android:id="@+id/nairobi"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:src="@drawable/nairobi"
-        android:scaleType="centerCrop"
         android:translationX="21dp"
         android:translationY="292dp"
-        app:cornerRadius="20dp"/>
+        app:cardElevation="50dp"
+        app:cardCornerRadius="20dp">
+        <ImageView
+            android:id="@+id/nairobiImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/nairobi"
+            android:scaleType="centerCrop"/>
 
-    <ImageView
+        <TextView
+            android:id="@+id/nairobiText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/lato_bold"
+            android:text="Nairobi"
+            android:textColor="@color/colorSecondary"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/mombasa"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:src="@drawable/mombasa"
-        android:scaleType="centerCrop"
         android:translationX="203dp"
         android:translationY="292dp"
-        app:cornerRadius="20dp"/>
+        app:cardElevation="50dp"
+        app:cardCornerRadius="20dp">
+        <ImageView
+            android:id="@+id/mombasaImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/mombasa"
+            android:scaleType="centerCrop"/>
 
-    <ImageView
+        <TextView
+            android:id="@+id/mombasaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/lato_bold"
+            android:text="Mombasa"
+            android:textColor="@color/colorSecondary"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/kisumu"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:src="@drawable/kisumu"
-        android:scaleType="centerCrop"
         android:translationX="21dp"
         android:translationY="523dp"
-        app:cornerRadius="20dp"/>
+        app:cardElevation="50dp"
+        app:cardCornerRadius="20dp">
+        <ImageView
+            android:id="@+id/kisumuImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/kisumu"
+            android:scaleType="centerCrop"/>
 
-    <ImageView
+        <TextView
+            android:id="@+id/kisumuText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/lato_bold"
+            android:text="Kisumu"
+            android:textColor="@color/colorSecondary"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/nakuru"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:src="@drawable/nakuru2"
-        android:scaleType="centerCrop"
         android:translationX="203dp"
         android:translationY="523dp"
-        app:cornerRadius="20dp"/>
+        app:cardElevation="50dp"
+        app:cardCornerRadius="20dp">
+        <ImageView
+            android:id="@+id/nakuruImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/nakuru2"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/nakuruText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/lato_bold"
+            android:text="Nakuru"
+            android:textColor="@color/colorSecondary"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
 
 
 </RelativeLayout>
