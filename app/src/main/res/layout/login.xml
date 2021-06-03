@@ -80,15 +80,15 @@
         app:passwordToggleEnabled="true"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
 
-    <View android:layout_marginTop="380dp"
+    <View android:id="@+id/lastLine"
+        android:layout_marginTop="380dp"
         style="@style/Divider"/>
 
-        <Button
+    <Button
         android:id="@+id/forgotPassword"
         android:layout_width="170dp"
         android:layout_height="33dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="50dp"
+        android:layout_alignEnd="@id/lastLine"
         android:layout_marginTop="395dp"
         android:background="#00000000"
         android:text="Forgot Password"
