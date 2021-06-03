@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.moringaschool.kenyatravelguide">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,8 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KenyaTravelGuide">
-        <activity android:name=".AccountCreated"></activity>
-        <activity android:name=".DashboardActivity" />
+        <activity android:name=".AccountCreated" />
+        <activity
+            android:name=".DashboardActivity"
+            android:theme="@style/NoActionBarTheme">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/NoActionBarTheme">

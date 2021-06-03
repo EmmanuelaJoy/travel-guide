@@ -28,6 +28,22 @@
         android:src="@drawable/travel" />
 
     <Button
+        android:id="@+id/dashboard"
+        android:layout_width="267dp"
+        android:layout_height="71dp"
+        android:layout_centerHorizontal="true"
+        android:text="Get Started"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:translationY="400dp"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:cornerRadius="15dp"
+        app:iconTint="@color/colorPrimaryDark"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="470dp" />
+
+    <Button
         android:id="@+id/getStarted"
         android:layout_width="267dp"
         android:layout_height="71dp"
@@ -36,7 +52,7 @@
         android:textColor="@color/colorSecondaryText"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:translationY="600dp"
+        android:translationY="550dp"
         app:backgroundTint="@color/colorPrimaryDark"
         app:cornerRadius="15dp"
         app:iconTint="@color/colorPrimaryDark"

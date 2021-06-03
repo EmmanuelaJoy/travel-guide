@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,9 +30,9 @@ public class SignupActivity extends AppCompatActivity {
     @BindView(R.id.signUp) Button mSignUpButton;
     @BindView(R.id.welcomeMessage) TextView mWelcomeMessage;
     @BindView(R.id.loginLink) TextView mLogInMessage;
-    @BindView(R.id.email) TextView mEmail;
-    @BindView(R.id.username) TextView mUsername;
-    @BindView(R.id.password) TextView mPassword;
+    @BindView(R.id.email) TextInputEditText mEmail;
+    @BindView(R.id.username) TextInputEditText mUsername;
+    @BindView(R.id.password) TextInputEditText mPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
