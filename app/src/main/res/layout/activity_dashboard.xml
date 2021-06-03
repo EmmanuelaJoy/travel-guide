@@ -7,7 +7,7 @@
     android:id="@+id/drawerlayout"
     tools:context=".DashboardActivity"
     android:fitsSystemWindows="true"
-    tools:openDrawer="s">
+    tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
