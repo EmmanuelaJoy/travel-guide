@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:title="NAVIGATION">
+
+            <menu>
+                <item
+                    android:id="@+id/nav_home"
+                    android:title="Home"
+                    android:icon=""/>
+
+                <item
+                    android:id="@+id/nav_account"
+                    android:title="Account"
+                    android:icon=""/>
+
+                <item
+                    android:id="@+id/nav_favorites"
+                    android:title="Favorites"
+                    android:icon=""/>
+            </menu>
+
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:title="SYSTEM">
+
+            <menu>
+                <item
+                    android:id="@+id/nav_settings"
+                    android:title="Settings"
+                    android:icon=""/>
+
+                <item
+                    android:id="@+id/nav_help"
+                    android:title="Help"
+                    android:icon=""/>
+
+                <item
+                    android:id="@+id/nav_information"
+                    android:title="Information"
+                    android:icon=""/>
+            </menu>
+
+        </item>
+    </group>
+</menu>
