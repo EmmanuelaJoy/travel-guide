@@ -92,7 +92,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private Boolean validateUsername(){
         String value = mUsername.getEditableText().toString();
-        String noWhiteSpace = "(?=\\s+$)";
+//        String noWhiteSpace = "\"\\\\A\\\\w{4,20}\\\\z\"";
 
         if (value.isEmpty()){
             mUsername.setError("Field cannot be empty");
@@ -100,9 +100,9 @@ public class SignupActivity extends AppCompatActivity {
         } else if(value.length()>=15){
             mUsername.setError("Username too long");
             return false;
-        }else if(!value.matches(noWhiteSpace)){
-            mUsername.setError("White spaces are not allowed");
-            return false;
+//        }else if(!value.matches(noWhiteSpace)){
+//            mUsername.setError("White spaces are not allowed");
+//            return false;
         }else{
             mUsername.setError(null);
             return true;
@@ -111,15 +111,15 @@ public class SignupActivity extends AppCompatActivity {
 
     private Boolean validatePassword(){
         String value = mPassword.getEditableText().toString();
-        String passwordVal = "^" +
-                //"(?=.*[0-9])" +         //at least 1 digit
-                //"(?=.*[a-z])" +         //at least 1 lower case letter
-                //"(?=.*[A-Z])" +         //at least 1 upper case letter
-                "(?=.*[a-zA-Z])" +      //any letter
-                "(?=.*[@#$%^&+=])" +    //at least 1 special character
-                "(?=\\S+$)" +           //no white spaces
-                ".{4,}" +               //at least 4 characters
-                "$";
+//        String passwordVal = "^" +
+//                //"(?=.*[0-9])" +         //at least 1 digit
+//                //"(?=.*[a-z])" +         //at least 1 lower case letter
+//                //"(?=.*[A-Z])" +         //at least 1 upper case letter
+//                "(?=.*[a-zA-Z])" +      //any letter
+//                "(?=.*[@#$%^&+=])" +    //at least 1 special character
+//                "(?=\\S+$)" +           //no white spaces
+//                ".{4,}" +               //at least 4 characters
+//                "$";
 
         if (value.isEmpty()){
             mPassword.setError("Field cannot be empty");
@@ -127,9 +127,9 @@ public class SignupActivity extends AppCompatActivity {
         } else if(value.length()>=15){
             mPassword.setError("Username too long");
             return false;
-        }else if(!value.matches(passwordVal)){
-            mPassword.setError("Password is too weak");
-            return false;
+//        }else if(!value.matches(passwordVal)){
+//            mPassword.setError("Password is too weak");
+//            return false;
         }else{
             mPassword.setError(null);
             return true;

@@ -23,7 +23,7 @@ import butterknife.BindView;
 public class DashboardActivity extends AppCompatActivity {
     @BindView(R.id.drawerlayout) DrawerLayout drawerLayout;
     @BindView(R.id.username) NavigationView navMenu;
-    @BindView(R.id.password) Toolbar toolbar;
+    @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.nav_logout) TextView logout;
     @BindView(R.id.userName) TextView signedInUserName;
     @BindView(R.id.userEmail) TextView signedInUserEmail;
@@ -32,7 +32,7 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.dashboard);
 
         setSupportActionBar(toolbar);
 

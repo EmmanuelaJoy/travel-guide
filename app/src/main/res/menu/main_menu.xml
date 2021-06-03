@@ -9,18 +9,15 @@
             <menu>
                 <item
                     android:id="@+id/nav_home"
-                    android:title="Home"
-                    android:icon=""/>
+                    android:title="Home"/>
 
                 <item
                     android:id="@+id/nav_account"
-                    android:title="Account"
-                    android:icon=""/>
+                    android:title="Account"/>
 
                 <item
                     android:id="@+id/nav_favorites"
-                    android:title="Favorites"
-                    android:icon=""/>
+                    android:title="Favorites"/>
             </menu>
 
         </item>
@@ -34,18 +31,15 @@
             <menu>
                 <item
                     android:id="@+id/nav_settings"
-                    android:title="Settings"
-                    android:icon=""/>
+                    android:title="Settings"/>
 
                 <item
                     android:id="@+id/nav_help"
-                    android:title="Help"
-                    android:icon=""/>
+                    android:title="Help"/>
 
                 <item
                     android:id="@+id/nav_information"
-                    android:title="Information"
-                    android:icon=""/>
+                    android:title="Information"/>
             </menu>
 
         </item>
@@ -54,7 +48,6 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_logout"
-            android:title="Logout"
-            android:icon=""/>
+            android:title="Logout"/>
     </group>
 </menu>

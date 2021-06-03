@@ -24,10 +24,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <include
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
-
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#00008577"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@android:drawable/ic_menu_sort_by_size" />
         <TextView
         android:id="@+id/menu"
         android:layout_width="33dp"
@@ -44,7 +48,7 @@
         android:id="@+id/profile"
         android:layout_width="33dp"
         android:layout_height="31dp"
-        android:layout_marginRight="17dp"
+        android:layout_marginRight="30dp"
         android:layout_alignParentEnd="true"
         tools:srcCompat="@tools:sample/avatars"
         android:textColor="@color/colorButtons"
@@ -59,14 +63,14 @@
         android:text="Explore"
         android:textColor="@color/colorPrimaryText"
         android:textSize="32sp"
-        android:translationX="17dp"
+        android:translationX="30dp"
         android:translationY="140dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="272dp"
         android:layout_height="52dp"
-        android:translationX="17dp"
+        android:translationX="30dp"
         android:translationY="180dp"
         app:cornerRadius="10dp"
         app:backgroundTint="@color/colorButtons"
@@ -99,14 +103,14 @@
         android:layout_height="wrap_content"
         android:text="Cities"
         android:textSize="16sp"
-        android:translationX="21dp"
+        android:translationX="30dp"
         android:translationY="253dp"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/nairobi"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:translationX="21dp"
+        android:translationX="30dp"
         android:translationY="292dp"
         app:cardElevation="30dp"
         app:cardCornerRadius="20dp">
@@ -132,7 +136,7 @@
         android:id="@+id/mombasa"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:translationX="203dp"
+        android:translationX="211dp"
         android:translationY="292dp"
         app:cardElevation="30dp"
         app:cardCornerRadius="20dp">
@@ -158,7 +162,7 @@
         android:id="@+id/kisumu"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:translationX="21dp"
+        android:translationX="30dp"
         android:translationY="523dp"
         app:cardElevation="30dp"
         app:cardCornerRadius="20dp">
@@ -184,7 +188,7 @@
         android:id="@+id/nakuru"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:translationX="203dp"
+        android:translationX="212dp"
         android:translationY="523dp"
         app:cardElevation="30dp"
         app:cardCornerRadius="20dp">
