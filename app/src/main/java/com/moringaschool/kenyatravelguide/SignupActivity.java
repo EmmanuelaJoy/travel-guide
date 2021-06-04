@@ -70,7 +70,7 @@ public class SignupActivity extends AppCompatActivity {
         });
 
         String title = "<font color=#F3A333>WELCOME TO</font> <font color=#F16821>KENYA TRAVEL GUIDE</font>";
-        String text = "<font color=#212121>ALready have an account?</font> <font color=#F16821>Log In</font>";
+        String text = "<font color=#212121>Already have an account?</font> <font color=#F16821>Log In</font>";
         mWelcomeMessage.setText(Html.fromHtml(title));
         mLogInMessage.setText(Html.fromHtml(text));
     }

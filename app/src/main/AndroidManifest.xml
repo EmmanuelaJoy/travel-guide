@@ -26,14 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignupActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.kenyatravelguide.MainActivity" />
         </activity>
         <activity android:name=".LoginActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.kenyatravelguide.SignupActivity" />
         </activity>
 
         <meta-data

@@ -1,175 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="#00008577"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/welcomeMessage"
-        android:layout_width="294dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginRight="7dp"
+        android:layout_width="287dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="30dp"
         android:alpha="0.7"
-        android:gravity="center"
-        android:text="WELCOME TO
-        KENYA TRAVEL GUIDE"
+        android:foregroundGravity="center"
+        android:text="WELCOME BACK!"
+        android:textAlignment="textStart"
         android:textColor="@color/colorPrimary"
-        android:textSize="34sp"
-        app:fontFamily="@font/passero_one" />
+        android:textSize="30sp"
+        app:fontFamily="@font/passero_one"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <TextView
-        android:id="@+id/icon1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="245dp"
-        android:fontFamily="@font/font_awesome"
-        android:textSize="20sp"
-        android:text="@string/fa_icon_user"
-        android:textColor="@color/colorPrimary" />
+        android:layout_marginTop="35dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage">
 
-
-    <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="225dp"
-            android:hint="Username"
-            android:inputType="textEmailAddress"
-        android:textColor="@color/colorDivider"
-            android:textColorHint="@color/colorDivider"
-            android:textSize="18sp"
-            app:fontFamily="@font/prompt"/>
+            android:layout_marginLeft="0dp">
 
-    <View android:layout_marginTop="300dp"
-        style="@style/Divider"/>
+            <TextView
+                android:id="@+id/icon1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/font_awesome"
+                android:text="@string/fa_icon_user"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/icon2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="326dp"
-        android:fontFamily="@font/font_awesome"
-        android:textSize="20sp"
-        android:text="@string/fa_icon_user_lock"
-        android:textColor="@color/colorPrimary" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:hint="Username"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorDivider"
+                android:textColorHint="@color/colorDivider"
+                android:textSize="18sp"
+                app:fontFamily="@font/prompt"
+                app:layout_constraintLeft_toRightOf="@id/icon1" />
+        </RelativeLayout>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="306dp"
-        android:hint="Password"
-        android:inputType="numberPassword"
-        android:textColor="@color/colorDivider"
-        android:textColorHint="@color/colorDivider"
-        android:textSize="18sp"
-        app:fontFamily="@font/prompt"
-        app:passwordToggleEnabled="true"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+        <View
+            style="@style/Divider"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/username" />
 
-    <View android:id="@+id/lastLine"
-        android:layout_marginTop="380dp"
-        style="@style/Divider"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp">
 
-    <Button
-        android:id="@+id/forgotPassword"
-        android:layout_width="170dp"
-        android:layout_height="33dp"
-        android:layout_alignEnd="@id/lastLine"
-        android:layout_marginTop="395dp"
-        android:background="#00000000"
-        android:text="Forgot Password"
-        android:textColor="@color/colorDivider"
-        android:textSize="12sp" />
+            <TextView
+                android:id="@+id/icon2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/font_awesome"
+                android:text="@string/fa_icon_user_lock"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="165dp"
-        android:layout_height="46dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginLeft="99dp"
-        android:layout_marginTop="452dp"
-        android:text="Log in"
-        android:textColor="@color/colorSecondaryText"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:cornerRadius="15dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:hint="Password"
+                android:inputType="numberPassword"
+                app:passwordToggleEnabled="true"
+                android:textColor="@color/colorDivider"
+                android:textColorHint="@color/colorDivider"
+                android:textSize="18sp"
+                app:fontFamily="@font/prompt" />
 
-    <Button
-        android:id="@+id/google"
-        android:layout_width="288dp"
-        android:layout_height="46dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginLeft="99dp"
-        android:layout_marginTop="525dp"
-        android:text="Sign in with Google"
-        android:textColor="@color/colorPrimaryText"
-        android:background="@drawable/outlined_button_style"
-        app:backgroundTint="@color/colorSecondary"
-        app:cornerRadius="15dp" />
+        </RelativeLayout>
 
-    <Button
-        android:id="@+id/facebook"
-        android:layout_width="288dp"
-        android:layout_height="46dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginLeft="99dp"
-        android:layout_marginTop="588dp"
-        android:text="Sign in with Facebook"
-        android:textColor="@color/colorPrimaryText"
-        android:background="@drawable/outlined_button_style"
-        app:backgroundTint="@color/colorSecondary"
-        app:cornerRadius="15dp" />
+        <View
+            android:id="@+id/lastLine"
+            style="@style/Divider"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <TextView
-        android:id="@+id/signUpLink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="667dp"
-        android:text="Don't have an account? Sign up"
-        android:textColor="@color/colorPrimaryText"
-        android:textSize="16sp"
-        app:fontFamily="@font/prompt" />
+
+        <Button
+            android:id="@+id/forgotPassword"
+            android:layout_width="170dp"
+            android:layout_height="33dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="#00000000"
+            android:text="Forgot Password?"
+            android:textColor="@color/colorDivider"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastLine" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Log In"
+            android:textColor="@color/colorSecondaryText"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:cornerRadius="15dp"
+            app:iconTint="@color/colorPrimaryDark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
+
+        <Button
+            android:id="@+id/google"
+            android:layout_width="288dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/outlined_button_style"
+            android:text="Sign in with Google"
+            android:textColor="@color/colorPrimaryText"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login" />
+
+        <Button
+            android:id="@+id/facebook"
+            android:layout_width="288dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTintMode="add"
+            android:background="@drawable/outlined_button_style"
+            android:text="Sign in with Facebook"
+            android:textColor="@color/colorPrimaryText"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/google"/>
+
+        <TextView
+            android:id="@+id/signUpLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Don't have an account? Sign up"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="16sp"
+            app:fontFamily="@font/prompt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/facebook" />
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/firebaseProgressBar"
-        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone" />
+        android:layout_centerInParent="true"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:outlineSpotShadowColor="@color/colorPrimaryText"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/loadingTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_below="@+id/firebaseProgressBar"
-        android:textColor="@color/colorPrimaryText"
+        android:layout_centerInParent="true"
         android:layout_margin="20dp"
-        android:visibility="gone" />
+        android:gravity="center|center_horizontal|center_vertical"
+        android:textColor="@color/colorPrimaryText"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <View
+        android:id="@+id/orangeVector"
         android:layout_width="415dp"
         android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/ic_orangevector" />
+        android:background="@drawable/ic_orangevector"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

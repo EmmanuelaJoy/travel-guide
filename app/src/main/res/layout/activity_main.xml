@@ -59,7 +59,6 @@
         app:backgroundTint="@color/colorPrimaryDark"
         app:iconTint="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintCircleRadius="15dp"
         app:layout_constraintStart_toStartOf="parent" />
 
 
