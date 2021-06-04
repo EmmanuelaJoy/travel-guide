@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,54 +10,57 @@
         android:id="@+id/title"
         android:layout_width="323dp"
         android:layout_height="168dp"
-        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="300dp"
+        android:gravity="center|center_horizontal"
         android:text="FIND YOUR NEXT TRAVEL DESTINATION IN KENYA"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryText"
-        android:textSize="26sp"
-        android:translationY="77dp"
-        app:fontFamily="@font/playball" />
+        android:textSize="22sp"
+        android:padding="10dp"
+        app:fontFamily="@font/libre_baskerville"
+        app:layout_constraintBottom_toTopOf="@id/getStarted"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="An image of a travelling bag."
-        android:scaleType="center"
-        android:src="@drawable/travel" />
+        android:contentDescription="Travel icons."
+        android:scaleType="fitCenter"
+        android:padding="10dp"
+        android:src="@drawable/travel2"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-    <Button
-        android:id="@+id/dashboard"
-        android:layout_width="267dp"
-        android:layout_height="71dp"
-        android:layout_centerHorizontal="true"
-        android:text="Get Started"
-        android:textColor="@color/colorSecondaryText"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:translationY="400dp"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:cornerRadius="15dp"
-        app:iconTint="@color/colorPrimaryDark"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="470dp" />
+<!--    <Button-->
+<!--        android:id="@+id/dashboard"-->
+<!--        android:layout_width="267dp"-->
+<!--        android:layout_height="71dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="Get Started"-->
+<!--        android:textColor="@color/colorSecondaryText"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:translationY="400dp"-->
+<!--        app:backgroundTint="@color/colorPrimaryDark"-->
+<!--        app:cornerRadius="15dp"-->
+<!--        app:iconTint="@color/colorPrimaryDark"-->
+<!--        tools:layout_editor_absoluteX="61dp"-->
+<!--        tools:layout_editor_absoluteY="470dp" />-->
 
     <Button
         android:id="@+id/getStarted"
-        android:layout_width="267dp"
+        android:layout_width="match_parent"
         android:layout_height="71dp"
-        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="68dp"
         android:text="Get Started"
         android:textColor="@color/colorSecondaryText"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:translationY="550dp"
         app:backgroundTint="@color/colorPrimaryDark"
-        app:cornerRadius="15dp"
         app:iconTint="@color/colorPrimaryDark"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="470dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintCircleRadius="15dp"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

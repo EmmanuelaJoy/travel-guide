@@ -14,7 +14,6 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.getStarted) Button mGetStartedButton;
-    @BindView(R.id.dashboard) Button mDashboard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +29,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mDashboard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }
