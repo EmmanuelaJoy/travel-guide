@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -39,6 +40,7 @@ public class DashboardActivity extends AppCompatActivity {
     @BindView(R.id.userEmail) TextView signedInUserEmail;
     @BindView(R.id.userProfileImage) ImageView signedInUserProfileImage;
     @BindView(R.id.tourist_facilities) TextView tourist_facilities;
+    @BindView(R.id.sightings) ListView sightings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

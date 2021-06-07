@@ -255,6 +255,7 @@
         </HorizontalScrollView>
 
         <HorizontalScrollView
+            android:id="@+id/kindList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -317,6 +318,15 @@
 
         </HorizontalScrollView>
 
+        <ListView
+            android:id="@+id/sightings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/kindList"
+            app:layout_constraintTop_toBottomOf="@+id/kindList">
+
+        </ListView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
