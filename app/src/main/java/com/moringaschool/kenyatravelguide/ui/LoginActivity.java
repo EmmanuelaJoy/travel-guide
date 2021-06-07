@@ -1,6 +1,7 @@
 package com.moringaschool.kenyatravelguide.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -33,9 +34,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity {
-    private static final String TAG = "";
+    private static final String TAG = "LoginActivity";
     private GoogleSignInClient mGoogleSignInClient;
-    private static final int RC_SIGN_IN =123 ;
+    private static final int RC_SIGN_IN =1;
     @BindView(R.id.login) Button mLoginButton;
     @BindView(R.id.google) SignInButton mGoogleSignIn;
     @BindView(R.id.facebook) Button mFacebookSignIn;
@@ -206,14 +207,26 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
                             Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication failed!", Toast.LENGTH_SHORT).show();
+                            updateUI(null);
                         }
                     }
                 });
+    }
+
+    private void updateUI(FirebaseUser user){
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        if(signInAccount != null){
+            Uri personPhoto = signInAccount.getPhotoUrl();
+            String personName = signInAccount.getDisplayName();
+            String personEmail = signInAccount.getEmail();
+            Toast.makeText(LoginActivity.this, personName + personEmail, Toast.LENGTH_SHORT).show();
+        }
     }
 }
