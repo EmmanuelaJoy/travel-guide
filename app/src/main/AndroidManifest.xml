@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KenyaTravelGuide">
+        <activity android:name=".CityActivity"></activity>
         <activity android:name=".AccountCreated" />
         <activity
             android:name=".DashboardActivity"
-            android:theme="@style/NoActionBarTheme">
-        </activity>
+            android:theme="@style/NoActionBarTheme"></activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/NoActionBarTheme">
@@ -25,10 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignupActivity">
-        </activity>
-        <activity android:name=".LoginActivity">
-        </activity>
+        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
