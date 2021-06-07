@@ -103,4 +103,8 @@ public class KenyaSightingsClass {
         this.kinds = kinds;
     }
 
+    public List<KenyaSightingsClass> getKenyaSightings(){
+        return kenyaSightings;
+    }
+
 }

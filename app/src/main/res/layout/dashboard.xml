@@ -289,6 +289,7 @@
                     app:fontFamily="@font/prompt"
                     android:textSize="14sp"
                     android:layout_marginRight="10dp"
+                    android:onClick="onClick"
                     android:clickable="true"/>
 
                 <TextView
@@ -298,7 +299,9 @@
                     android:text="Nature"
                     app:fontFamily="@font/prompt"
                     android:textSize="14sp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:onClick="onClick"
+                    android:clickable="true"/>
 
                 <TextView
                     android:id="@+id/amusements"
@@ -307,7 +310,9 @@
                     android:text="Amusements"
                     app:fontFamily="@font/prompt"
                     android:textSize="14sp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:onClick="onClick"
+                    android:clickable="true"/>
 
                 <TextView
                     android:id="@+id/accomodation"
@@ -316,20 +321,22 @@
                     android:text="Accomodation"
                     app:fontFamily="@font/prompt"
                     android:textSize="14sp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:onClick="onClick"
+                    android:clickable="true"/>
             </LinearLayout>
 
         </HorizontalScrollView>
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sightings"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="@+id/kindList"
             app:layout_constraintTop_toBottomOf="@+id/kindList">
 
-        </ListView>
+        </androidx.recyclerview.widget.RecyclerView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

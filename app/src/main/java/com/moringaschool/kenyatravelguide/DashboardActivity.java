@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ClipData;
 import android.content.Intent;
@@ -37,11 +39,19 @@ public class DashboardActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navMenu;
     Toolbar toolbar;
-    ListView sightings;
+    RecyclerView sightingsRecyclerView;
+    private KenyaSightingsListAdapter mSightingsListAdapter;
+    private TouristFacilitiesListAdapter mTouristFacilitiesListAdapter;
+    public List<KenyaSightingsClass> kenyaSightingsClass;
+    public List<TouristFacilitiesModelClass> touristFacilitiesClass;
     TextView tourist_facilities;
     @BindView(R.id.userName) TextView signedInUserName;
     @BindView(R.id.userEmail) TextView signedInUserEmail;
     @BindView(R.id.userProfileImage) ImageView signedInUserProfileImage;
+    @BindView(R.id.sports) TextView mSports;
+    @BindView(R.id.nature) TextView mNature;
+    @BindView(R.id.amusements) TextView mAmusements;
+    @BindView(R.id.accomodation) TextView mAccomodation;
 
 
     @Override
@@ -52,7 +62,7 @@ public class DashboardActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navMenu = findViewById(R.id.navMenu);
         toolbar = findViewById(R.id.toolbar);
-        sightings = findViewById(R.id.sightings);
+        sightingsRecyclerView = findViewById(R.id.sightings);
         tourist_facilities = findViewById(R.id.tourist_facilities);
 
         setSupportActionBar(toolbar);
@@ -70,40 +80,63 @@ public class DashboardActivity extends AppCompatActivity {
             signedInUserEmail.setText(signInAccount.getEmail());
         }
 
-        tourist_facilities.setOnClickListener(new View.OnClickListener() {
+        OpenTripMapApi openTripMapApi = OpenTripMapClient.getClient();
+        Call<KenyaSightingsClass> call = openTripMapApi.getKenyaSightings();
+
+        call.enqueue(new Callback<KenyaSightingsClass>() {
             @Override
-            public void onClick(View view) {
-                OpenTripMapApi openTripMapApi = OpenTripMapClient.getClient();
-                Call<TouristFacilitiesModelClass> call = openTripMapApi.getTouristFacilitiesKenya();
+            public void onResponse(Call<KenyaSightingsClass> call, Response<KenyaSightingsClass> response) {
+                if(response.isSuccessful()){
+                    kenyaSightingsClass = response.body().getKenyaSightings();
+                    mSightingsListAdapter = new KenyaSightingsListAdapter(DashboardActivity.this, kenyaSightingsClass);
+                    sightingsRecyclerView.setAdapter(mSightingsListAdapter);
+                    RecyclerView.LayoutManager layoutManager =
+                            new LinearLayoutManager(DashboardActivity.this);
+                    sightingsRecyclerView.setLayoutManager(layoutManager);
+                    sightingsRecyclerView.setHasFixedSize(true);
+                }
+            }
 
-                call.enqueue(new Callback<TouristFacilitiesModelClass>() {
-                    @Override
-                    public void onResponse(Call<TouristFacilitiesModelClass> call, Response<TouristFacilitiesModelClass> response) {
-                        if(response.isSuccessful()){
-                            List<TouristFacilitiesModelClass> touristFacilitiesList = response.body().getTouristFacilities();
-                            String[] touristFacilityNames = new String[touristFacilitiesList.size()];
-                            String[] touristFacilityKind = new String[touristFacilitiesList.size()];
+            @Override
+            public void onFailure(Call<KenyaSightingsClass> call, Throwable t) {
 
-                            for(int i = 0; i<touristFacilityNames.length; i++){
-                                touristFacilityNames[i] = touristFacilitiesList.get(i).getName();
-                            }
-
-                            for (int i = 0; i<touristFacilityKind.length; i++){
-                                touristFacilityKind[i] = touristFacilitiesList.get(i).getKind();
-                            }
-
-                            TouristFacilitiesArrayAdapter adapter = new TouristFacilitiesArrayAdapter(DashboardActivity.this, android.R.layout.simple_list_item_1, touristFacilityNames, touristFacilityKind);
-                            sightings.setAdapter(adapter);
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<TouristFacilitiesModelClass> call, Throwable t) {
-
-                    }
-                });
             }
         });
+
+//        tourist_facilities.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                OpenTripMapApi openTripMapApi = OpenTripMapClient.getClient();
+//                Call<TouristFacilitiesModelClass> call = openTripMapApi.getTouristFacilitiesKenya();
+//
+//                call.enqueue(new Callback<TouristFacilitiesModelClass>() {
+//                    @Override
+//                    public void onResponse(Call<TouristFacilitiesModelClass> call, Response<TouristFacilitiesModelClass> response) {
+//                        if(response.isSuccessful()){
+//                            List<TouristFacilitiesModelClass> touristFacilitiesList = response.body().getTouristFacilities();
+//                            String[] touristFacilityNames = new String[touristFacilitiesList.size()];
+//                            String[] touristFacilityKind = new String[touristFacilitiesList.size()];
+//
+//                            for(int i = 0; i<touristFacilityNames.length; i++){
+//                                touristFacilityNames[i] = touristFacilitiesList.get(i).getName();
+//                            }
+//
+//                            for (int i = 0; i<touristFacilityKind.length; i++){
+//                                touristFacilityKind[i] = touristFacilitiesList.get(i).getKinds();
+//                            }
+//
+//                            TouristFacilitiesArrayAdapter adapter = new TouristFacilitiesArrayAdapter(DashboardActivity.this, android.R.layout.simple_list_item_1, touristFacilityNames, touristFacilityKind);
+//                            sightings.setAdapter(adapter);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<TouristFacilitiesModelClass> call, Throwable t) {
+//
+//                    }
+//                });
+//            }
+//        });
 
     }
 
@@ -143,7 +176,47 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        String highlighted = "<font color=#F3A333>Tourist Facilities</font>";
-        tourist_facilities.setText(Html.fromHtml(highlighted));
+        String touristFacilities = "<font color=#F3A333>Tourist Facilities</font>";
+        tourist_facilities.setText(Html.fromHtml(touristFacilities));
+        tourist_facilities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OpenTripMapApi openTripMapApi = OpenTripMapClient.getClient();
+                Call<TouristFacilitiesModelClass> call = openTripMapApi.getTouristFacilitiesKenya();
+
+                call.enqueue(new Callback<TouristFacilitiesModelClass>() {
+                    @Override
+                    public void onResponse(Call<TouristFacilitiesModelClass> call, Response<TouristFacilitiesModelClass> response) {
+                        if(response.isSuccessful()){
+                            touristFacilitiesClass = response.body().getTouristFacilities();
+                            mTouristFacilitiesListAdapter = new TouristFacilitiesListAdapter(DashboardActivity.this, touristFacilitiesClass);
+                            sightingsRecyclerView.setAdapter(mTouristFacilitiesListAdapter);
+                            RecyclerView.LayoutManager layoutManager =
+                                    new LinearLayoutManager(DashboardActivity.this);
+                            sightingsRecyclerView.setLayoutManager(layoutManager);
+                            sightingsRecyclerView.setHasFixedSize(true);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<TouristFacilitiesModelClass> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
+
+        String sports = "<font color=#F3A333>Sports</font>";
+        mSports.setText(Html.fromHtml(sports));
+
+        String nature = "<font color=#F3A333>Nature</font>";
+        mNature.setText(Html.fromHtml(nature));
+
+        String amusements = "<font color=#F3A333>Amusements</font>";
+        mAmusements.setText(Html.fromHtml(amusements));
+
+        String accomodation = "<font color=#F3A333>Accomodation</font>";
+        mAccomodation.setText(Html.fromHtml(accomodation));
+
     }
 }
