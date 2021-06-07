@@ -11,24 +11,25 @@ import java.util.List;
 public class TouristFacilitiesModelClass {
 
     public List<TouristFacilitiesModelClass> touristFacilities;
-    @SerializedName("id")
+    @SerializedName("xid")
     @Expose
-    private String id;
+    private String xid;
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("dist")
+    @Expose
+    private Double dist;
     @SerializedName("rate")
     @Expose
     private Integer rate;
-    @SerializedName("kind")
+    @SerializedName("osm")
     @Expose
-    private String kind;
-    @SerializedName("longitude")
+    private String osm;
+    @SerializedName("kinds")
     @Expose
-    private Double longitude;
-    @SerializedName("latitude")
-    @Expose
-    private Double latitude;
+    private String kinds;
+
 
     /**
      * No args constructor for use in serialization
@@ -39,30 +40,30 @@ public class TouristFacilitiesModelClass {
 
     /**
      *
+     * @param xid
      * @param rate
-     * @param kind
-     * @param latitude
      * @param name
-     * @param id
-     * @param longitude
+     * @param osm
+     * @param dist
+     * @param kinds
      */
-    public TouristFacilitiesModelClass(String id, String name, Integer rate, String kind, Double longitude, Double latitude) {
+    public TouristFacilitiesModelClass(String xid, String name, Double dist, Integer rate, String osm, String kinds) {
         super();
-        this.id = id;
+        this.xid = xid;
         this.name = name;
+        this.dist = dist;
         this.rate = rate;
-        this.kind = kind;
-        this.longitude = longitude;
-        this.latitude = latitude;
+        this.osm = osm;
+        this.kinds = kinds;
         touristFacilities.add(this);
     }
 
-    public String getId() {
-        return id;
+    public String getXid() {
+        return xid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setXid(String xid) {
+        this.xid = xid;
     }
 
     public String getName() {
@@ -73,6 +74,14 @@ public class TouristFacilitiesModelClass {
         this.name = name;
     }
 
+    public Double getDist() {
+        return dist;
+    }
+
+    public void setDist(Double dist) {
+        this.dist = dist;
+    }
+
     public Integer getRate() {
         return rate;
     }
@@ -81,28 +90,20 @@ public class TouristFacilitiesModelClass {
         this.rate = rate;
     }
 
-    public String getKind() {
-        return kind;
+    public String getOsm() {
+        return osm;
     }
 
-    public void setKind(String kind) {
-        this.kind = kind;
+    public void setOsm(String osm) {
+        this.osm = osm;
     }
 
-    public Double getLongitude() {
-        return longitude;
+    public String getKinds() {
+        return kinds;
     }
 
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
+    public void setKinds(String kinds) {
+        this.kinds = kinds;
     }
 
     public List<TouristFacilitiesModelClass> getTouristFacilities(){
