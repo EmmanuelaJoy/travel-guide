@@ -5,9 +5,12 @@ package com.moringaschool.kenyatravelguide;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 
 public class TouristFacilitiesModelClass {
 
+    public List<TouristFacilitiesModelClass> touristFacilities;
     @SerializedName("id")
     @Expose
     private String id;
@@ -51,6 +54,7 @@ public class TouristFacilitiesModelClass {
         this.kind = kind;
         this.longitude = longitude;
         this.latitude = latitude;
+        touristFacilities.add(this);
     }
 
     public String getId() {
@@ -101,4 +105,7 @@ public class TouristFacilitiesModelClass {
         this.latitude = latitude;
     }
 
+    public List<TouristFacilitiesModelClass> getTouristFacilities(){
+        return touristFacilities;
+    }
 }

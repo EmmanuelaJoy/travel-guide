@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,7 +24,12 @@ import com.google.firebase.auth.FirebaseUser;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 import butterknife.BindView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DashboardActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -32,6 +38,7 @@ public class DashboardActivity extends AppCompatActivity {
     @BindView(R.id.userName) TextView signedInUserName;
     @BindView(R.id.userEmail) TextView signedInUserEmail;
     @BindView(R.id.userProfileImage) ImageView signedInUserProfileImage;
+    @BindView(R.id.tourist_facilities) TextView tourist_facilities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +63,40 @@ public class DashboardActivity extends AppCompatActivity {
             signedInUserName.setText(signInAccount.getDisplayName());
             signedInUserEmail.setText(signInAccount.getEmail());
         }
+
+        tourist_facilities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OpenTripMapApi openTripMapApi = OpenTripMapClient.getClient();
+                Call<TouristFacilitiesModelClass> call = openTripMapApi.getTouristFacilitiesKenya();
+
+                call.enqueue(new Callback<TouristFacilitiesModelClass>() {
+                    @Override
+                    public void onResponse(Call<TouristFacilitiesModelClass> call, Response<TouristFacilitiesModelClass> response) {
+                        if(response.isSuccessful()){
+                            List<TouristFacilitiesModelClass> touristFacilitiesList = response.body().getTouristFacilities();
+                            String[] touristFacilityNames = new String[touristFacilitiesList.size()];
+                            String[] touristFacilityKind = new String[touristFacilitiesList.size()];
+
+                            for(int i = 0; i<touristFacilityNames.length; i++){
+                                touristFacilityNames[i] = touristFacilitiesList.get(i).getName();
+                            }
+
+                            for (int i = 0; i<touristFacilityKind.length; i++){
+                                touristFacilityKind[i] = touristFacilitiesList.get(i).getKind();
+                            }
+
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<TouristFacilitiesModelClass> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
 
     }
 
