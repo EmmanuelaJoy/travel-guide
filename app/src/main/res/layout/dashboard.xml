@@ -277,7 +277,9 @@
                     android:text="Tourist facilities"
                     app:fontFamily="@font/prompt"
                     android:textSize="14sp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:onClick="onClick"
+                    android:clickable="true"/>
 
                 <TextView
                     android:id="@+id/sports"
@@ -286,7 +288,8 @@
                     android:text="Sports"
                     app:fontFamily="@font/prompt"
                     android:textSize="14sp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:clickable="true"/>
 
                 <TextView
                     android:id="@+id/nature"

@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -36,11 +37,12 @@ public class DashboardActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navMenu;
     Toolbar toolbar;
+    ListView sightings;
+    TextView tourist_facilities;
     @BindView(R.id.userName) TextView signedInUserName;
     @BindView(R.id.userEmail) TextView signedInUserEmail;
     @BindView(R.id.userProfileImage) ImageView signedInUserProfileImage;
-    @BindView(R.id.tourist_facilities) TextView tourist_facilities;
-    @BindView(R.id.sightings) ListView sightings;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +52,15 @@ public class DashboardActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navMenu = findViewById(R.id.navMenu);
         toolbar = findViewById(R.id.toolbar);
+        sightings = findViewById(R.id.sightings);
+        tourist_facilities = findViewById(R.id.tourist_facilities);
 
         setSupportActionBar(toolbar);
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-//        navMenu.setNavigationItemSelectedListener(this);
+//        navMenu.setNavigationItemSelectedListener(onOptionsItemSelected();
         navMenu.setCheckedItem(R.id.nav_home);
 
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
@@ -88,7 +92,8 @@ public class DashboardActivity extends AppCompatActivity {
                                 touristFacilityKind[i] = touristFacilitiesList.get(i).getKind();
                             }
 
-
+                            TouristFacilitiesArrayAdapter adapter = new TouristFacilitiesArrayAdapter(DashboardActivity.this, android.R.layout.simple_list_item_1, touristFacilityNames, touristFacilityKind);
+                            sightings.setAdapter(adapter);
                         }
                     }
 
@@ -137,4 +142,8 @@ public class DashboardActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onClick(View view) {
+        String highlighted = "<font color=#F3A333>Tourist Facilities</font>";
+        tourist_facilities.setText(Html.fromHtml(highlighted));
+    }
 }
