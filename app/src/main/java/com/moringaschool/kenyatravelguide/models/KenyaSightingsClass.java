@@ -1,16 +1,14 @@
 
-package com.moringaschool.kenyatravelguide;
-
+package com.moringaschool.kenyatravelguide.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+public class KenyaSightingsClass {
 
-public class TouristFacilitiesModelClass {
-
-    public List<TouristFacilitiesModelClass> touristFacilities;
+    public List<KenyaSightingsClass> kenyaSightings;
     @SerializedName("xid")
     @Expose
     private String xid;
@@ -30,16 +28,15 @@ public class TouristFacilitiesModelClass {
     @Expose
     private String kinds;
 
-
     /**
      * No args constructor for use in serialization
-     *
+     * 
      */
-    public TouristFacilitiesModelClass() {
+    public KenyaSightingsClass() {
     }
 
     /**
-     *
+     * 
      * @param xid
      * @param rate
      * @param name
@@ -47,7 +44,7 @@ public class TouristFacilitiesModelClass {
      * @param dist
      * @param kinds
      */
-    public TouristFacilitiesModelClass(String xid, String name, Double dist, Integer rate, String osm, String kinds) {
+    public KenyaSightingsClass(String xid, String name, Double dist, Integer rate, String osm, String kinds) {
         super();
         this.xid = xid;
         this.name = name;
@@ -55,7 +52,7 @@ public class TouristFacilitiesModelClass {
         this.rate = rate;
         this.osm = osm;
         this.kinds = kinds;
-        touristFacilities.add(this);
+        kenyaSightings.add(this);
     }
 
     public String getXid() {
@@ -106,7 +103,8 @@ public class TouristFacilitiesModelClass {
         this.kinds = kinds;
     }
 
-    public List<TouristFacilitiesModelClass> getTouristFacilities(){
-        return touristFacilities;
+    public List<KenyaSightingsClass> getKenyaSightings(){
+        return kenyaSightings;
     }
+
 }

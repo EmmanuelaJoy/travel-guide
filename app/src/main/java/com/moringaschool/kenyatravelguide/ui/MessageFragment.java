@@ -1,4 +1,4 @@
-package com.moringaschool.kenyatravelguide;
+package com.moringaschool.kenyatravelguide.ui;
 
 import android.app.Dialog;
 import android.content.DialogInterface;

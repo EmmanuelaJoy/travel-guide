@@ -1,4 +1,4 @@
-package com.moringaschool.kenyatravelguide;
+package com.moringaschool.kenyatravelguide.models;
 
 public class UserHelperClass {
     String username, email, password;

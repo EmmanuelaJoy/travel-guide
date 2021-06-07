@@ -1,4 +1,4 @@
-package com.moringaschool.kenyatravelguide;
+package com.moringaschool.kenyatravelguide.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -9,22 +9,25 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.moringaschool.kenyatravelguide.adapters.KenyaSightingsListAdapter;
+import com.moringaschool.kenyatravelguide.R;
+import com.moringaschool.kenyatravelguide.adapters.TouristFacilitiesListAdapter;
+import com.moringaschool.kenyatravelguide.models.KenyaSightingsClass;
+import com.moringaschool.kenyatravelguide.models.TouristFacilitiesModelClass;
+import com.moringaschool.kenyatravelguide.network.OpenTripMapApi;
+import com.moringaschool.kenyatravelguide.network.OpenTripMapClient;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -102,41 +105,6 @@ public class DashboardActivity extends AppCompatActivity {
 
             }
         });
-
-//        tourist_facilities.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                OpenTripMapApi openTripMapApi = OpenTripMapClient.getClient();
-//                Call<TouristFacilitiesModelClass> call = openTripMapApi.getTouristFacilitiesKenya();
-//
-//                call.enqueue(new Callback<TouristFacilitiesModelClass>() {
-//                    @Override
-//                    public void onResponse(Call<TouristFacilitiesModelClass> call, Response<TouristFacilitiesModelClass> response) {
-//                        if(response.isSuccessful()){
-//                            List<TouristFacilitiesModelClass> touristFacilitiesList = response.body().getTouristFacilities();
-//                            String[] touristFacilityNames = new String[touristFacilitiesList.size()];
-//                            String[] touristFacilityKind = new String[touristFacilitiesList.size()];
-//
-//                            for(int i = 0; i<touristFacilityNames.length; i++){
-//                                touristFacilityNames[i] = touristFacilitiesList.get(i).getName();
-//                            }
-//
-//                            for (int i = 0; i<touristFacilityKind.length; i++){
-//                                touristFacilityKind[i] = touristFacilitiesList.get(i).getKinds();
-//                            }
-//
-//                            TouristFacilitiesArrayAdapter adapter = new TouristFacilitiesArrayAdapter(DashboardActivity.this, android.R.layout.simple_list_item_1, touristFacilityNames, touristFacilityKind);
-//                            sightings.setAdapter(adapter);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<TouristFacilitiesModelClass> call, Throwable t) {
-//
-//                    }
-//                });
-//            }
-//        });
 
     }
 

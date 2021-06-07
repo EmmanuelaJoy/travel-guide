@@ -1,10 +1,12 @@
-package com.moringaschool.kenyatravelguide;
+package com.moringaschool.kenyatravelguide.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AccountCreated extends AppCompatActivity {
+import com.moringaschool.kenyatravelguide.R;
+
+public class AccountCreatedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

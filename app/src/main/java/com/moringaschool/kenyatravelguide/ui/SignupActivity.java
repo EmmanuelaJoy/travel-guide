@@ -1,4 +1,4 @@
-package com.moringaschool.kenyatravelguide;
+package com.moringaschool.kenyatravelguide.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,18 +6,15 @@ import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.moringaschool.kenyatravelguide.Constants;
+import com.moringaschool.kenyatravelguide.R;
+import com.moringaschool.kenyatravelguide.models.UserHelperClass;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,4 +1,6 @@
-package com.moringaschool.kenyatravelguide;
+package com.moringaschool.kenyatravelguide.network;
+
+import com.moringaschool.kenyatravelguide.network.OpenTripMapApi;
 
 import java.io.IOException;
 

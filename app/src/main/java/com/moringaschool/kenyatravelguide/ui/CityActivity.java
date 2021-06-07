@@ -1,8 +1,10 @@
-package com.moringaschool.kenyatravelguide;
+package com.moringaschool.kenyatravelguide.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.moringaschool.kenyatravelguide.R;
 
 public class CityActivity extends AppCompatActivity {
 
