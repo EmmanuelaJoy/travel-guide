@@ -17,6 +17,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -36,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN =123 ;
     @BindView(R.id.login) Button mLoginButton;
-    @BindView(R.id.google) Button mGoogleSignIn;
+    @BindView(R.id.google) SignInButton mGoogleSignIn;
     @BindView(R.id.facebook) Button mFacebookSignIn;
     @BindView(R.id.welcomeMessage) TextView mWelcomeMessage;
     @BindView(R.id.signUpLink) TextView mSignUpMessage;
@@ -71,6 +72,8 @@ public class LoginActivity extends AppCompatActivity {
         String text = "<font color=#212121>Don't have an account?</font> <font color=#F16821>Sign Up</font>";
         mWelcomeMessage.setText(Html.fromHtml(title));
         mSignUpMessage.setText(Html.fromHtml(text));
+        TextView textView = (TextView) mGoogleSignIn.getChildAt(0);
+        textView.setText("Sign in with Google");
         
         mSignUpMessage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,17 +97,13 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                }
+        mAuthListener = firebaseAuth -> {
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            if (user != null) {
+                Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
             }
         };
         
@@ -138,25 +137,27 @@ public class LoginActivity extends AppCompatActivity {
             mUsername.setError("Please enter your username");
             return;
         }
-        if (password.equals("")) {
+        else if (password.equals("")) {
             mPassword.setError("Password cannot be blank");
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(username, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        else if(username !="" && password !=""){
+            mAuth.signInWithEmailAndPassword(username, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-                        if (!task.isSuccessful()) {
-                            Log.w(TAG, "signInWithEmail", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            return;
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+                            if (!task.isSuccessful()) {
+                                Log.w(TAG, "signInWithEmail", task.getException());
+                                Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                                return;
+                            }
                         }
-                    }
-                });
+                    });
+        }
     }
 
     private void createRequest() {

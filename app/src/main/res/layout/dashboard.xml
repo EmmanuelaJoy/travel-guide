@@ -334,9 +334,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="@+id/kindList"
-            app:layout_constraintTop_toBottomOf="@+id/kindList">
-
-        </androidx.recyclerview.widget.RecyclerView>
+            app:layout_constraintTop_toBottomOf="@+id/kindList"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
