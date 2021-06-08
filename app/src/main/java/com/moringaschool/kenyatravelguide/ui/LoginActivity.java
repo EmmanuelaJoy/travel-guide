@@ -2,11 +2,13 @@ package com.moringaschool.kenyatravelguide.ui;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.login) Button mLoginButton;
     @BindView(R.id.google) SignInButton mGoogleSignIn;
     @BindView(R.id.facebook) Button mFacebookSignIn;
-    @BindView(R.id.welcomeMessage) TextView mWelcomeMessage;
+    @BindView(R.id.welcomeMessageText) TextView mWelcomeMessage;
     @BindView(R.id.signUpLink) TextView mSignUpMessage;
     @BindView(R.id.username) TextInputEditText mUsername;
     @BindView(R.id.password) TextInputEditText mPassword;
@@ -69,12 +71,20 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login);
         ButterKnife.bind(this);
 
-        String title = "<font color=#F3A333>WELCOME TO</font> <font color=#F16821>KENYA TRAVEL GUIDE</font>";
-        String text = "<font color=#212121>Don't have an account?</font> <font color=#F16821>Sign Up</font>";
+        //format title
+        String title = "<font color=#9D9B9B<>WELCOME</font><br/><font color=#212121>BACK!</font>";
+        String text = "<font color=#212121>New User?</font> <font color=#F16821>Sign Up</font>";
         mWelcomeMessage.setText(Html.fromHtml(title));
         mSignUpMessage.setText(Html.fromHtml(text));
+
+        //for changing status bar icon colors
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.M){
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+
+        //change google button text
         TextView textView = (TextView) mGoogleSignIn.getChildAt(0);
-        textView.setText("Sign in with Google");
+        textView.setText("Continue with Google");
         
         mSignUpMessage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +128,11 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void onLoginClick(View View){
+        startActivity(new Intent(this,SignupActivity.class));
+        overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
     }
 
     private void showProgressBar() {
