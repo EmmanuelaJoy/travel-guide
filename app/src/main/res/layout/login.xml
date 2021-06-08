@@ -239,7 +239,6 @@
         android:layout_width="11dp"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="@+id/scrollView"
         android:background="@drawable/ic_side_bg" />
@@ -248,7 +247,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="11dp"
         android:layout_marginBottom="30dp"
-        android:onClick="onPLusIconClick"
+        android:onClick="onLoginClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="@+id/scrollView"

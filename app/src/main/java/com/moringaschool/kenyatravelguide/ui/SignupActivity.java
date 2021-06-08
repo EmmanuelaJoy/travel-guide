@@ -1,9 +1,13 @@
 package com.moringaschool.kenyatravelguide.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -66,10 +70,23 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-        String title = "<font color=#FFFFFF>WELCOME TO</font><br/><font color=#727272>KENYA<br/>TRAVEL<br/>GUIDE</font>";
+        String title = "<font color=#FFFFFF>WELCOME TO</font><br/><font color=#FFFFFF>KENYA<br/>TRAVEL<br/>GUIDE</font>";
         String text = "<font color=#212121>Already have an account?</font> <font color=#F16821>Log In</font>";
         mWelcomeMessage.setText(Html.fromHtml(title));
         mLogInMessage.setText(Html.fromHtml(text));
+    }
+
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+//            window.setStatusBarColor(getResources().getColor(R.color.register_bk_color));
+        }
+    }
+    public void onLoginClick(View view){
+        startActivity(new Intent(this,LoginActivity.class));
+        overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
     }
 
     private Boolean validateEmail(){
