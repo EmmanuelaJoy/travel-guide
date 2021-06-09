@@ -21,6 +21,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.moringaschool.kenyatravelguide.BuildConfig;
 import com.moringaschool.kenyatravelguide.adapters.KenyaSightingsListAdapter;
 import com.moringaschool.kenyatravelguide.R;
 import com.moringaschool.kenyatravelguide.adapters.TouristFacilitiesListAdapter;
@@ -47,6 +48,7 @@ public class DashboardActivity extends AppCompatActivity {
     private TouristFacilitiesListAdapter mTouristFacilitiesListAdapter;
     public List<KenyaSightingsClass> kenyaSightingsClass;
     public List<TouristFacilitiesModelClass> touristFacilitiesClass;
+    OpenTripMapApi openTripMapApi = OpenTripMapClient.getClient();
     TextView tourist_facilities;
     @BindView(R.id.userName) TextView signedInUserName;
     @BindView(R.id.userEmail) TextView signedInUserEmail;
@@ -83,20 +85,29 @@ public class DashboardActivity extends AppCompatActivity {
             signedInUserEmail.setText(signInAccount.getEmail());
         }
 
-        OpenTripMapApi openTripMapApi = OpenTripMapClient.getClient();
-        Call<KenyaSightingsClass> call = openTripMapApi.getKenyaSightings();
+        getSightings();
+        RecyclerView.LayoutManager layoutManager =
+                new LinearLayoutManager(DashboardActivity.this);
+        sightingsRecyclerView.setLayoutManager(layoutManager);
+        sightingsRecyclerView.setHasFixedSize(true);
+        mSightingsListAdapter = new KenyaSightingsListAdapter(DashboardActivity.this, kenyaSightingsClass);
+        sightingsRecyclerView.setAdapter(mSightingsListAdapter);
+    }
+
+    public void getSightings(){
+        Call<KenyaSightingsClass> call = openTripMapApi.getKenyaSightings(BuildConfig.KEY);
 
         call.enqueue(new Callback<KenyaSightingsClass>() {
             @Override
             public void onResponse(Call<KenyaSightingsClass> call, Response<KenyaSightingsClass> response) {
                 if(response.isSuccessful()){
-                    kenyaSightingsClass = response.body().getKenyaSightings();
-                    mSightingsListAdapter = new KenyaSightingsListAdapter(DashboardActivity.this, kenyaSightingsClass);
-                    sightingsRecyclerView.setAdapter(mSightingsListAdapter);
+                    kenyaSightingsClass.addAll(response.body().getKenyaSightings());
                     RecyclerView.LayoutManager layoutManager =
                             new LinearLayoutManager(DashboardActivity.this);
                     sightingsRecyclerView.setLayoutManager(layoutManager);
                     sightingsRecyclerView.setHasFixedSize(true);
+                    mSightingsListAdapter = new KenyaSightingsListAdapter(DashboardActivity.this, kenyaSightingsClass);
+                    sightingsRecyclerView.setAdapter(mSightingsListAdapter);
                 }
             }
 
@@ -105,7 +116,29 @@ public class DashboardActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    public void getTouristFacilities(){
+        Call<TouristFacilitiesModelClass> call = openTripMapApi.getTouristFacilitiesKenya();
+
+        call.enqueue(new Callback<TouristFacilitiesModelClass>() {
+            @Override
+            public void onResponse(Call<TouristFacilitiesModelClass> call, Response<TouristFacilitiesModelClass> response) {
+                if(response.isSuccessful()){
+                    touristFacilitiesClass.addAll(response.body().getTouristFacilities());
+                    mTouristFacilitiesListAdapter = new TouristFacilitiesListAdapter(DashboardActivity.this, touristFacilitiesClass);
+                    RecyclerView.LayoutManager layoutManager =
+                            new LinearLayoutManager(DashboardActivity.this);
+                    sightingsRecyclerView.setLayoutManager(layoutManager);
+                    sightingsRecyclerView.setHasFixedSize(true);
+                    sightingsRecyclerView.setAdapter(mTouristFacilitiesListAdapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TouristFacilitiesModelClass> call, Throwable t) {
+            }
+        });
     }
 
     @Override
@@ -149,28 +182,7 @@ public class DashboardActivity extends AppCompatActivity {
         tourist_facilities.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OpenTripMapApi openTripMapApi = OpenTripMapClient.getClient();
-                Call<TouristFacilitiesModelClass> call = openTripMapApi.getTouristFacilitiesKenya();
-
-                call.enqueue(new Callback<TouristFacilitiesModelClass>() {
-                    @Override
-                    public void onResponse(Call<TouristFacilitiesModelClass> call, Response<TouristFacilitiesModelClass> response) {
-                        if(response.isSuccessful()){
-                            touristFacilitiesClass = response.body().getTouristFacilities();
-                            mTouristFacilitiesListAdapter = new TouristFacilitiesListAdapter(DashboardActivity.this, touristFacilitiesClass);
-                            sightingsRecyclerView.setAdapter(mTouristFacilitiesListAdapter);
-                            RecyclerView.LayoutManager layoutManager =
-                                    new LinearLayoutManager(DashboardActivity.this);
-                            sightingsRecyclerView.setLayoutManager(layoutManager);
-                            sightingsRecyclerView.setHasFixedSize(true);
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<TouristFacilitiesModelClass> call, Throwable t) {
-
-                    }
-                });
+                getTouristFacilities();
             }
         });
 

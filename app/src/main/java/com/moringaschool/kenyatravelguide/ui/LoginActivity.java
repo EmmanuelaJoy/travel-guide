@@ -8,6 +8,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -30,6 +31,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.kenyatravelguide.R;
 
 import butterknife.BindView;
@@ -44,8 +51,8 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.facebook) Button mFacebookSignIn;
     @BindView(R.id.welcomeMessageText) TextView mWelcomeMessage;
     @BindView(R.id.signUpLink) TextView mSignUpMessage;
-    @BindView(R.id.username) TextInputEditText mUsername;
-    @BindView(R.id.password) TextInputEditText mPassword;
+    @BindView(R.id.username) EditText mUsername;
+    @BindView(R.id.password) EditText mPassword;
     @BindView(R.id.firebaseProgressBar) ProgressBar mSignInProgressBar;
     @BindView(R.id.loadingTextView) TextView mLoadingSignUp;
     private FirebaseAuth mAuth;
@@ -97,12 +104,11 @@ public class LoginActivity extends AppCompatActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(view == mLoginButton){
-                    loginWithPassword();
-                    showProgressBar();
+                if(!validateUsername() || !validatePassword()) {
+                    return;
+                }else {
+                    isUser();
                 }
-                Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                startActivity(intent);
             }
         });
 
@@ -133,6 +139,70 @@ public class LoginActivity extends AppCompatActivity {
     public void onLoginClick(View View){
         startActivity(new Intent(this,SignupActivity.class));
         overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
+    }
+
+    private Boolean validateUsername(){
+        String value = mUsername.getEditableText().toString();
+
+        if (value.isEmpty()){
+            mUsername.setError("Field cannot be empty");
+            return false;
+        }else{
+            mUsername.setError(null);
+            return true;
+        }
+    }
+
+    private Boolean validatePassword(){
+        String value = mPassword.getEditableText().toString();
+
+        if (value.isEmpty()){
+            mPassword.setError("Field cannot be empty");
+            return false;
+        }else{
+            mPassword.setError(null);
+            return true;
+        }
+    }
+
+    private void isUser() {
+        String userEnteredUserName = mUsername.getText().toString().trim();
+        String userEnteredPassword = mPassword.getText().toString().trim();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
+        Query checkUser = reference.orderByChild("username").equalTo(userEnteredUserName);
+        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    mUsername.setError(null);
+
+                    String passwordFromDB= snapshot.child(userEnteredUserName).child("password").getValue(String.class);
+                    if (passwordFromDB !=null && passwordFromDB.equals(userEnteredPassword)) {
+                        mPassword.setError(null);
+                        String emailFromDB= snapshot.child(userEnteredUserName).child("email").getValue(String.class);
+                        String usernameFromDB= snapshot.child(userEnteredUserName).child("username").getValue(String.class);
+
+                        showProgressBar();
+                        Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                        intent.putExtra("email", emailFromDB);
+                        intent.putExtra("password", passwordFromDB);
+                        intent.putExtra("username", usernameFromDB);
+                        startActivity(intent);
+                    }else {
+                        mPassword.setError("Incorrect password");
+                        mPassword.requestFocus();
+                    }
+                }else {
+                    mUsername.setError("User does not exist");
+                    mUsername.requestFocus();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void showProgressBar() {

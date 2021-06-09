@@ -32,6 +32,7 @@ android {
 
         buildTypes.each {
             it.buildConfigField 'String', 'OPENTRIPMAP_API_KEY', OpenTripMapApiKey
+            it.buildConfigField 'String', 'KEY', Key
         }
     }
 

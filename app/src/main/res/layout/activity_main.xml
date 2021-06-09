@@ -32,6 +32,20 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
+        android:id="@+id/dash"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_marginBottom="6dp"
+        android:text="Dash"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:iconTint="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/getStarted"
         android:layout_width="match_parent"
         android:layout_height="71dp"

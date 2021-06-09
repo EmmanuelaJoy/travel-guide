@@ -44,6 +44,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.signup);
         ButterKnife.bind(this);
 
+        changeStatusBarColor();
         mLogInMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +63,7 @@ public class SignupActivity extends AppCompatActivity {
                     String username = mUsername.getEditableText().toString();
                     String password =  mPassword.getEditableText().toString();
                     UserHelperClass helperClass = new UserHelperClass(email,username,password);
-                    reference.push().setValue(helperClass);
+                    reference.child(username).setValue(helperClass);
                     Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
@@ -80,8 +81,6 @@ public class SignupActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.TRANSPARENT);
-//            window.setStatusBarColor(getResources().getColor(R.color.register_bk_color));
         }
     }
     public void onLoginClick(View view){
